@@ -21,299 +21,493 @@ HINT: Manage your time in order to finish the structure and responsiveness befor
 -->
 
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- IMPORT ALL THE BOOTSTRAP RELATED CSS & SCRIPTS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<meta charset="utf-8" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+<!-- IMPORT ALL THE BOOTSTRAP RELATED CSS & SCRIPTS-->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+    crossorigin="anonymous"
+/>
 
-    <style>
-        /* EXERCISE 1
-            For every Album we'd like to have a consistent style.
-            Therefore you should create a class for each of the following elements:
-            - The album container
-            - The album cover
-            - The album title
-            - The album group / singer / dj
-            - The album genre
-            - The album duration
-            - etc
+<style>
+    /* EXERCISE 1
+    		For every Album we'd like to have a consistent style.
+        Therefore you should create a class for each of the following elements:
+        - The album container
+        - The album cover
+        - The album title
+        - The album group / singer / dj
+        - The album genre
+        - The album duration
+        - etc
 
-            ...to make sure you give every album the same consistent appearance.
-         */
-        body {
-            font-family: monospace;
-        }
+        ...to make sure you give every album the same consistent appearance.
+        */
+    body {
+    font-family: monospace;
+    }
 
-        .album {
-            display: flex;
-            flex-direction: column;
-        }
-        .album-cover {
-            width: 100%;
-            object-fit: cover;
-        }
-        .album-artist {
-            margin-top: 0.5rem;
-            margin-bottom: 0;
-            letter-spacing: 0.5px;
-            color: white;
-        }
-        .album-title {
-            margin-top: 0.2rem;
-            color: lightgrey;
-        }
-        .album-genre {
-            color: grey;
-        }
-    </style>
+    .album {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    .album-cover {
+      width: 100%;
+      object-fit: cover;
+    }
+    .album-artist {
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      letter-spacing: 0.5px;
+      color: white;
+    }
+    .album-title {
+      margin-top: 0.2rem;
+      color: lightgrey;
+    }
+    .album-genre {
+      color: grey;
+    }
+
+		.featuredParagraph {
+			@media screen (max-width: 765px) {
+			margin-top: 1rem;
+			}
+		}
+
+</style>
 </head>
 
 <body class="bg-black">
-    <!-- EXERCISE 2 
-            Implement a navigation bar using the bootstrap component
-            This navigation bar must link every section in your page.
-        -->
-    <nav class="nav sticky-top justify-content-center bg-black">
-        <li class="nav-item">
-            <a href="#" class="nav-link text-white h4">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="#bestAlbums" class="nav-link text-white h4">Best Albums</a>
-        </li>
-        <li class="nav-item">
-            <a href="#bestAlbum" class="nav-link text-white h4">Best Album</a>
-        </li>
-        <li class="nav-item">
-            <a href="#admiration" class="nav-link text-white h4">Admired Artist</a>
-        </li>
-        <li class="nav-item">
-            <a href="#worstAlbums" class="nav-link text-white h4">Worst Albums</a>
-        </li>
-    </nav>
+<!-- EXERCISE 2 
+        Implement a navigation bar using the bootstrap component
+        This navigation bar must link every section in your page.
+    -->
+<nav
+    class="
+    navbar navbar-expand-md navbar-dark
+    sticky-top
+    bg-black bg-opacity-75
+    "
+>
+        <button
+        class="navbar-toggler"
+        style="margin-left: 1rem"
+        type="button"
+        data-toggle="collapse"
+        data-target="#mynavbar"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- EXERCISE 3
-            Create a responsive section for your favourite albums.
-            In this section you should have:
-            - 4 albums per row when the screen is very large
-            - 3 albums per row when you are on a tablet (or a smaller viewport)
-            - 2 albums per row when you are on a small screen
-        -->
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="nav navbar-nav justify-content-around w-100">
+                <li class="nav-item">
+                <a href="#" class="nav-link text-white h4">Home</a>
+                </li>
+                <li class="nav-item">
+                <a href="#bestAlbums" class="nav-link text-white h4">Best Albums</a>
+                </li>
+                <li class="nav-item">
+                <a href="#bestAlbum" class="nav-link text-white h4">Best Album</a>
+                </li>
+                <li class="nav-item">
+                <a href="#admiration" class="nav-link text-white h4"
+                    >Featured artist</a
+                >
+                </li>
+                <li class="nav-item">
+                <a href="#worstAlbums" class="nav-link text-white h4">Worst Albums</a
+                >
+                </li>
+            </ul>
+        </div>
+</nav>
 
-        
-    <div class="container mt-5">
-        <h2 id="bestAlbums" class="text-white">Best albums</h2>
+<!-- EXERCISE 3
+        Create a responsive section for your favourite albums.
+        In this section you should have:
+        - 4 albums per row when the screen is very large
+        - 3 albums per row when you are on a tablet (or a smaller viewport)
+        - 2 albums per row when you are on a small screen
+    -->
 
+<div class="container mt-5">
+    <h2 id="bestAlbums" class="text-white">Best albums</h2>
+
+    <div class="row">
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/CollegeDropout-1425314354.jpg?quality=.8&height=793.225558121632&width=800"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">The College Dropout</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/LateRegistration-1425314361.jpg?quality=.8&height=800&width=800"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">Late registration</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Graduation-1425314359.jpg?quality=.8&height=800&width=800"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">Graduation</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/808s-1425314352.jpg?quality=.8&height=800&width=800"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">808s & Heartbreak</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/DarkTwistedFantasy-1425314358.jpg?quality=.8&height=600&width=600"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">My Beautiful Dark Twisted Fantasy</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Yeezus-1425314365.jpg?quality=.8&height=800&width=800"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Kanye West</h4>
+        <h6 class="album-title">Yeezus</h6>
+        <p class="album-genre">Hip-Hop</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- EXERCISE 4
+        Create a section for the album reviews.
+        Pick one of your favourite albums, and create a section with:
+        - Cover
+        - Title
+        - Band
+        - Duration
+        - Genre
+        - Tracklist
+        - ... And whatever you think it's interesting about it!
+    -->
+<div class="container mt-5">
+    <h2 id="bestAlbum" class="text-white">Best album from Kanye West</h2>
+    <div class="card">
+    <img
+        class="p-5"
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Yeezus-1425314365.jpg?quality=.8&height=800&width=800"
+        class="card-img-top"
+        alt="..."
+    />
+    <div class="card-body">
+        <h3 class="card-title">Kanye West</h3>
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/CollegeDropout-1425314354.jpg?quality=.8&height=793.225558121632&width=800" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">The College Dropout</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/LateRegistration-1425314361.jpg?quality=.8&height=800&width=800" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">Late registration</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Graduation-1425314359.jpg?quality=.8&height=800&width=800" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">Graduation</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/808s-1425314352.jpg?quality=.8&height=800&width=800" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">808s & Heartbreak</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/DarkTwistedFantasy-1425314358.jpg?quality=.8&height=600&width=600" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">My Beautiful Dark Twisted Fantasy</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Yeezus-1425314365.jpg?quality=.8&height=800&width=800" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Kanye West</h4>
-                    <h6 class="album-title">Yeezus</h6>
-                    <p class="album-genre">Hip-Hop</p>
-                </div>
-            </div>
+        <h3 class="col-4 card-title">
+            <span class="h5 text-uppercase">Album:</span> Yeezus
+        </h3>
+        <h3 class="col-4 card-title">
+            <span class="h5 text-uppercase">Duration:</span> 40:01
+        </h3>
+        <h3 class="col-4 card-title">
+            <span class="h5 text-uppercase">Genre:</span> Hip-Hop
+        </h3>
+        </div>
+        <p class="card-text">
+        Marking a blunt break with the filigreed maximalism he nailed on My
+        Beautiful Dark Twisted Fantasy, Kanye's sixth solo album trades
+        smooth soul and anthemic choruses for jarring electro, acid house,
+        and industrial grind while delivering some of his most lewd and
+        heart-crushing tales yet.
+        </p>
+        <a
+        href="https://pitchfork.com/reviews/albums/18172-kanye-west-yeezus/"
+        target="_blank"
+        class="btn btn-primary bg-dark"
+        >Read Pitchfork review</a
+        >
+    </div>
+    </div>
+</div>
+
+<!-- EXERCISE 5
+        Worst album list! Choose the albums you dislike or some you think are overrated and list it
+        in this "hall of shame" chart! 
+    -->
+<div class="container mt-5">
+    <h2 id="worstAlbums" class="text-white">Worst albums</h2>
+    <div class="row">
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/apres-1000x1000.jpg"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">aprés</h6>
+        <p class="album-genre">Punk</p>
         </div>
     </div>
-
-
-    <!-- EXERCISE 4
-            Create a section for the album reviews.
-            Pick one of your favourite albums, and create a section with:
-            - Cover
-            - Title
-            - Band
-            - Duration
-            - Genre
-            - Tracklist
-            - ... And whatever you think it's interesting about it!
-        -->
-    <div class="container mt-5">
-        <h2 id="bestAlbum" class="text-white">Best album from Kanye West</h2>
-        <div class="card">
-            <img class="p-5" src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Yeezus-1425314365.jpg?quality=.8&height=800&width=800" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h3 class="card-title">Kanye West</h3>
-                <div class="row">
-                    <h3 class="col-4 card-title">Album: Yeezus</h3>
-                    <h3 class="col-4 card-title">Duration: 40:01</h3>
-                    <h3 class="col-4 card-title">Genre: Hip-Hop</h3>
-                </div>
-                <p class="card-text">Marking a blunt break with the filigreed maximalism he nailed on My Beautiful Dark Twisted Fantasy, Kanye's sixth solo album trades smooth soul and anthemic choruses for jarring electro, acid house, and industrial grind while delivering some of his most lewd and heart-crushing tales yet.</p>
-                <a href="https://pitchfork.com/reviews/albums/18172-kanye-west-yeezus/" target="_blank" class="btn btn-primary bg-dark">Read Pitchfork review</a>
-            </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/skullring.jpg"
+            alt=""
+            class="album-cover"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">Skull Ring</h6>
+        <p class="album-genre">Punk</p>
         </div>
     </div>
-    
-    <!-- EXERCISE 5
-            Worst album list! Choose the albums you dislike or some you think are overrated and list it
-            in this "hall of shame" chart! 
-        -->
-    <div class="container mt-5">
-        <h2 id="worstAlbums" class="text-white">Worst albums</h2>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/apres-1000x1000.jpg" alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">aprés</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/skullring.jpg"
-                        alt="" class="album-cover">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">Skull Ring</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/beamemup-1000x1000.jpg"
-                        alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">Beat 'Em Up</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/brickbybrick-1000x1000.jpg"
-                        alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">Brick By Brick</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/zombiebirdhouse.jpg"
-                        alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">Zombie Birdhouse</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="album">
-                    <img src="https://static.stereogum.com/uploads/2016/03/instinct-1000x1000.png"
-                        alt="" class="album-cover rounded">
-                    <h4 class="album-artist">Iggy Pop</h4>
-                    <h6 class="album-title">Instinct</h6>
-                    <p class="album-genre">Punk</p>
-                </div>
-            </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/beamemup-1000x1000.jpg"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">Beat 'Em Up</h6>
+        <p class="album-genre">Punk</p>
         </div>
     </div>
-    
-    <!-- EXERCISE 6
-            Do you have any musician / band you admire or you are a fan of?
-            This section is dedicated to him / her / them!
-            Feel free to experiment in this part of the page.
-        -->
-    <div class="container mt-5">
-        <h2 id="admiration" class="text-white">
-            Admiration
-        </h2>
-        <div class="row mt-3">
-            <div class="col-4 text-white">
-                <h3>Hudson Mohawke</h3>
-                <h4>DJ, Producer</h4>
-                <p>In 2012, Hudson Mohawke began a series of collaborations with Kanye West, resulting in production credits on the GOOD
-                Music label album Cruel Summer. On 17 January 2013, it was announced that Mohawke had officially signed with GOOD Music
-                as a producer, whilst remaining with Warp and LuckyMe as a recording artist.</p>
-            </div>
-
-            <img class="col-8 admiration-img" src="https://www.electronicbeats.net/app/uploads/2015/03/HudsonMohawke_EBArtists.jpg" alt="picture of hudson mohawke">
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/brickbybrick-1000x1000.jpg"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">Brick By Brick</h6>
+        <p class="album-genre">Punk</p>
         </div>
-        
     </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/zombiebirdhouse.jpg"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">Zombie Birdhouse</h6>
+        <p class="album-genre">Punk</p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+        <div class="album">
+        <img
+            src="https://static.stereogum.com/uploads/2016/03/instinct-1000x1000.png"
+            alt=""
+            class="album-cover rounded"
+        />
+        <h4 class="album-artist">Iggy Pop</h4>
+        <h6 class="album-title">Instinct</h6>
+        <p class="album-genre">Punk</p>
+        </div>
+    </div>
+    </div>
+</div>
 
-    
-    
-    <!-- EXERCISE 7
-            Just covers!
-            Create a tapestry of album pictures. Every album picture must be "squared" (use CSS to achieve that).
-            Put at least 20 covers (also repeated) to have a nice tapestry effect and see how Bootstrap handles it.
-        -->
+<!-- EXERCISE 6
+        Do you have any musician / band you admire or you are a fan of?
+        This section is dedicated to him / her / them!
+        Feel free to experiment in this part of the page.
+    -->
 
-    
-    <!-- EXERCISE 8
-            Implement a footer with some information / social links.
-        -->
+<!-- Full of experimenting with bootstrap, still difficult as I would want
+to know sometimes what attributes are used for some classes. Typography especially is little bit difficult to style somehow-->
+<div class="container mt-5">
+    <h2 id="admiration" class="text-white">Featured artist</h2>
+    <div class="row mt-3">
+    <div class="col-12 col-md-5 text-white d-flex flex-column">
+        <h3>Hudson Mohawke</h3>
+        <h4>DJ, Producer</h4>
+        <p class="mb-0 featuredParagraph">
+        In 2012, Hudson Mohawke began a series of collaborations with Kanye
+        West, resulting in production credits on the GOOD Music label album
+        Cruel Summer. On 17 January 2013, it was announced that Mohawke had
+        officially signed with GOOD Music as a producer, whilst remaining
+        with Warp and LuckyMe as a recording artist.
+        </p>
+    </div>
+    <div class="col-12 col-md-7 d-flex">
+        <img
+        src="https://www.electronicbeats.net/app/uploads/2015/03/HudsonMohawke_EBArtists.jpg"
+        alt="picture of hudson mohawke"
+        class="img-fluid mw-100 align-self-sm-end"
+        />
+    </div>
+    </div>
+</div>
 
-    
-    <footer class="text-center mt-5 mb-2">
-        <h6 class="text-white">My favorite and not so favorite albums</h6>
-    </footer>
-    
-    
-    <!-- ############ EXTRA:
-        EXERCISE 9
-            Create an album details area which will be toggled on and off by clicking on the album image.
-        -->
+<!-- EXERCISE 7
+        Just covers!
+        Create a tapestry of album pictures. Every album picture must be "squared" (use CSS to achieve that).
+        Put at least 20 covers (also repeated) to have a nice tapestry effect and see how Bootstrap handles it.
+    -->
 
-    <!-- EXERCISE 10
-            Add a button to each section. By clicking on it the section body appears (if hidden) or disappears (if visible).
-            (hint: look for a boostrap component that can handle the job for you. You can always rely on DOM manipulation if you can't find it)
-        -->
+<div class="container mt-5">
+    <h2 class="text-white">I guess this is tapestry?</h2>
+    <div class="row mt-2 p-3">
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/CollegeDropout-1425314354.jpg?quality=.8&height=793.225558121632&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/LateRegistration-1425314361.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Graduation-1425314359.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/808s-1425314352.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/DarkTwistedFantasy-1425314358.jpg?quality=.8&height=600&width=600"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/watch-the-throne-album-cover1-1425322475.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/CruelSummer-1425314356.jpg?quality=.8&height=804.375&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Yeezus-1425314365.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/SoHelpMeGod-1425314364.jpg?quality=.8&height=600&width=600"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://img.discogs.com/8SNXLz8S54_-LytFEWSYRwR458E=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-8864718-1470370211-9581.jpeg.jpg"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://img.discogs.com/8Qmo7t8uBJHGcsBF57TxCbDR8Hk=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-12292679-1533986113-7518.jpeg.jpg"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://rovimusic.rovicorp.com/image.jpg?c=nOYOaa0IWvGruy-P6AMGXoAf7E_1E-2MlBBPmPAXRBU=&f=4"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://rovimusic.rovicorp.com/image.jpg?c=p0DvGvJOUVKNrcJ4xQG68D6KsMttLlyBmmVTZ6_CLs0=&f=4"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://ucarecdn.com/3e7075dc-d026-415e-93c9-1a795b43432c/-/preview/MqpNuf1t"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://img.discogs.com/8SNXLz8S54_-LytFEWSYRwR458E=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-8864718-1470370211-9581.jpeg.jpg"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/DarkTwistedFantasy-1425314358.jpg?quality=.8&height=600&width=600"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/Graduation-1425314359.jpg?quality=.8&height=800&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    <img
+        src="https://mtv.mtvnimages.com/uri/mgid:file:http:shared:mtv.com/news/wp-content/uploads/2015/03/CollegeDropout-1425314354.jpg?quality=.8&height=793.225558121632&width=800"
+        alt=""
+        class="col-lg-2 img-fluid mw-100 col-md-3 col-4 p-0"
+    />
+    </div>
+</div>
 
-    <!--
-         EXERCISE 11
-            Add in the footer a field that counts, on page load, how many ALBUMS are present on the page.
-        -->
+<!-- EXERCISE 8
+        Implement a footer with some information / social links.
+    -->
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-        crossorigin="anonymous"></script>
+<footer class="text-center mt-5 mb-2">
+    <h6 class="text-white">My favorite and not so favorite albums</h6>
+</footer>
+
+<!-- ############ EXTRA:
+    EXERCISE 9
+        Create an album details area which will be toggled on and off by clicking on the album image.
+    -->
+
+<!-- EXERCISE 10
+        Add a button to each section. By clicking on it the section body appears (if hidden) or disappears (if visible).
+        (hint: look for a boostrap component that can handle the job for you. You can always rely on DOM manipulation if you can't find it)
+    -->
+
+<!--
+        EXERCISE 11
+        Add in the footer a field that counts, on page load, how many ALBUMS are present on the page.
+-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
-
 </html>
